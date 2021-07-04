@@ -12,14 +12,21 @@ const removeTask = removeButton => {
 const addTask = task => {
   const listItem = document.createElement('li');
   const removeButton = document.createElement('button');
-
+  const completeButton = document.createElement('button');
+ 
   removeButton.innerText = '削除する';
   removeButton.addEventListener('click', () => removeTask(removeButton));
 
+  completeButton.innerText = '完了した';
+  completeButton.addEventListener('click', () => completeTask(completeButton));
+
+
   listItem.innerText = task;
+  listItem.append(completeButton);
   listItem.append(removeButton);
   addTaskTarget.appendChild(listItem)
 };
+
 
 addTaskTrigger.addEventListener('click', event => {
   const task = addTaskValue.Value;
